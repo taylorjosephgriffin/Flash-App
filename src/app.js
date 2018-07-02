@@ -12,7 +12,10 @@ export default class App extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    
+    const card = {}
+    card.question = document.querySelector('#questionInput').value
+    card.answer = document.querySelector('#answerInput').value
+    this.state.cards.push(card)
   }
 
   render() {
