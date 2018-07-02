@@ -1,0 +1,24 @@
+{
+  "name": "react-props",
+  "version": "1.0.0",
+  "description": "React Props",
+  "main": "index.js",
+  "scripts": {
+    "watch": "watchify src/index.js -vd -t babelify -o src/main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babelify": "^8.0.0",
+    "browserify": "^16.2.2",
+    "watchify": "^3.11.0"
+  },
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  }
+}
