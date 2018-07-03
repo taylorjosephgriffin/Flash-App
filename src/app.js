@@ -7,7 +7,8 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      cards: []
+      cards: [],
+      path: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -27,6 +28,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Nav />
+        <Card card={this.state.cards} />
       </div>
     )
   }
