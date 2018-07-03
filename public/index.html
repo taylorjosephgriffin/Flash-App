@@ -20,26 +20,32 @@
     <style>
       .create-card-form {
         position: absolute;
+        height: 0;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         height: 500px;
+        background-color: white;
         border: 1px solid grey;
       }
-      .form {
-        position: relative;
-        top: 20%;
-      }
-      .form-head {
-        position: relative;
-        top: 8%;
+
+      .form-control {margin-top: 10px;}
+      .form,
+      .form-head {margin-top: 35px;}
+
+      .form-button {
+        margin: 35px;
       }
       .form-icon {
-        position: relative;
-        top: 14%;
+        margin-top: 30px;
         font-size: 50px;
       }
-      .form-button {margin-top: 35px;}
+      .form-window {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .2);
+      }
     </style>
   </body>
 </html>
