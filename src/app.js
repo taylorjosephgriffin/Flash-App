@@ -11,11 +11,14 @@ export default class App extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault()
     const card = {}
-    card.question = event.target.children[2].children[0].children[1].value
-    card.answer = event.target.children[2].children[1].children[1].value
+
+    event.preventDefault()
+    const createForm = new FormData(event.target)
+    card.question = createForm.get('question')
+    card.answer = createForm.get('answer')
     this.state.cards.push(card)
+    event.target.reset()
   }
 
   render() {
