@@ -13,6 +13,13 @@ export default class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  renderView() {
+    switch (this.state.path) {
+      case 'create-card':
+        return <Form handleSubmit={this.handleSubmit} />
+    }
+  }
+
   handleSubmit(event) {
     const card = {}
 
@@ -28,6 +35,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Nav />
+        {this.renderView()}  
         <Card card={this.state.cards} />
       </div>
     )
