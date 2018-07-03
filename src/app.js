@@ -13,8 +13,8 @@ export default class App extends React.Component {
   handleSubmit(event) {
     event.preventDefault()
     const card = {}
-    card.question = document.querySelector('#questionInput').value
-    card.answer = document.querySelector('#answerInput').value
+    card.question = event.target.children[2].children[0].children[1].value
+    card.answer = event.target.children[2].children[1].children[1].value
     this.state.cards.push(card)
   }
 
