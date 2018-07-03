@@ -3,7 +3,7 @@ import React from 'react'
 export default function Form (props) {
   return (
     <div className='form-window'>
-      <form id='card-form' onSubmit={props.handleSubmit} className='create-card-form col-xl-2 col-lg-4 col-md-6 col-sm-8'>
+      <form id='card-form' onSubmit={props.handleSubmit} className='create-card-form col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-4'>
         <div className='form-head text-center'>
           <h1>Create a Card</h1>
         </div>

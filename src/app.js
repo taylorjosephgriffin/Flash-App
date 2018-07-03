@@ -1,17 +1,17 @@
 import React from 'react'
 import Form from './form.js'
 import Nav from './nav-bar.js'
-import Card from './card.js'
+import CardList from './card.js'
+import {NoCards} from './card.js'
 
 export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       cards: [],
-      path: ''
+      path: window.location.hash.replace(/#/g, '')
     }
     this.handleSubmit = this.handleSubmit.bind(this)
-    window.location.hash = '#card-list'
   }
 
   renderView() {
@@ -30,6 +30,10 @@ export default class App extends React.Component {
     card.answer = createForm.get('answer')
     this.state.cards.push(card)
     event.target.reset()
+    window.location.hash = 'card-list'
+    this.setState({
+      path: window.location.hash
+    })
   }
 
   componentDidMount() {
@@ -45,7 +49,7 @@ export default class App extends React.Component {
       <div>
         <Nav />
         {this.renderView()}
-        <Card card={this.state.cards} />
+        { this.state.cards.length === 0 ? <NoCards card={this.state.cards} /> : <CardList card={this.state.cards} /> }
       </div>
     )
   }
