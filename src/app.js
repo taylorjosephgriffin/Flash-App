@@ -31,11 +31,19 @@ export default class App extends React.Component {
     event.target.reset()
   }
 
+  componentDidMount() {
+    window.addEventListener("hashchange", event => {
+      this.setState({
+        path: window.location.hash.replace(/#/g, '')
+      })
+    }, false);
+  }
+
   render() {
     return (
       <div>
         <Nav />
-        {this.renderView()}  
+        {this.renderView()}
         <Card card={this.state.cards} />
       </div>
     )
