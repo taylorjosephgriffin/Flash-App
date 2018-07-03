@@ -20,6 +20,13 @@ export default function Card(props) {
           </div>
         )}
       </div>
-    </div> : <div>You have no cards</div>
+    </div> :
+    <div className="jumbotron no-cards-alert bg-warning col-xl-4 text-center">
+      <h1 className="display-4 text-center">You have no cards!</h1>
+      <hr className="my-2" />
+      <div className='no-cards-button'>
+        <a className="btn btn-light btn-md" href="#create-card" role="button">Create Card</a>
+      </div>
+    </div>
   )
 }

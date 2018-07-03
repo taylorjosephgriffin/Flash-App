@@ -62,3 +62,15 @@ input:focus {
   margin-top: -498px;
   font-size: 20px;
 }
+
+.no-cards-alert {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+.no-cards-button {
+  transform: translateY(70%);
+}
