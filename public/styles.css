@@ -2,16 +2,24 @@ body {
   background-color: #fffcf7;
 }
 
+.navigation {
+  position: fixed;
+  width: 100%;
+  margin-top: 0;
+  z-index: 11;
+}
+
 .form-window {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
+  z-index: 10;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
 .create-card-form {
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: 500px;
@@ -39,4 +47,18 @@ input:focus {
 .nav-icon {
   margin-right: 15px;
   font-size: 25px;
+}
+
+.flash-card {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  min-height: 200px;
+}
+
+.card-list { padding-top: 65px; }
+
+.close-form {
+  margin-left: 95%;
+  margin-top: -498px;
+  font-size: 20px;
 }

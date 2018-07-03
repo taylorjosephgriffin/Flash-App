@@ -20,7 +20,10 @@ export default function Form (props) {
             <input name='answer' type='text' className='form-control create-input' id='answerInput' placeholder='Enter the answer...'/>
           </div>
           <div className='form-button text-center'>
-            <button type='submit' className='btn btn-warning text-center'>Create Card</button>
+            <button type='submit' href='#card-list' className='btn btn-warning text-center'>Create Card</button>
+          </div>
+          <div className='close-form'>
+            <a className='text-dark' href='#card-list'><i className='far fa-times-circle'></i></a>
           </div>
         </div>
       </form>

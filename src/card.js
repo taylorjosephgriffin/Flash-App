@@ -9,7 +9,7 @@ export default function Card(props) {
           <div key={index} className='card-container col-xl-4'>
             <div className="card flash-card">
               <div className="card-header">
-                {card.question}
+                <span>{index + 1 + '. '}</span>{card.question}
               </div>
               <div className="card-body">
                 <blockquote className="blockquote mb-0">
