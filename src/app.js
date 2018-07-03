@@ -1,6 +1,7 @@
 import React from 'react'
 import Form from './form.js'
 import Nav from './nav-bar.js'
+import Card from './card.js'
 
 export default class App extends React.Component {
   constructor(props) {
