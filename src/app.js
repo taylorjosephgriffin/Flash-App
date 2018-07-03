@@ -1,5 +1,6 @@
 import React from 'react'
 import Form from './form.js'
+import Nav from './nav-bar.js'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -23,7 +24,9 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Form handleSubmit={this.handleSubmit} />
+      <div>
+        <Nav />
+      </div>
     )
   }
 }
