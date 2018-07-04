@@ -17,10 +17,13 @@ export default function CardList(props) {
     <div className='container-fluid card-list'>
       <div className='row'>
         { props.card.map((card, index) =>
-          <div key={index} className='card-container col-xl-4'>
+          <div key={index} className='card-container col-xl-4 col-lg-6 col-md-6 col-sm-12'>
             <div className="card flash-card">
-              <div className="card-header">
+              <div className="card-header card-question">
                 <span>{index + 1 + '. '}</span>{card.question}
+                  <div className='edit-container'>
+                    <a className='text-dark' title='Edit' href='#edit-card'><i className="far fa-edit float-right"></i></a>
+                  </div>
               </div>
               <div className="card-body">
                 <blockquote className="blockquote mb-0">
