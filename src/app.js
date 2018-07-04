@@ -3,6 +3,7 @@ import Form from './form.js'
 import Nav from './nav-bar.js'
 import CardList from './card.js'
 import {NoCards} from './card.js'
+import EditCard from './edit.js'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -19,6 +20,8 @@ export default class App extends React.Component {
     switch (this.state.path) {
       case 'create-card':
         return <Form handleSubmit={this.handleSubmit} />
+      case 'edit-card':
+        return <EditCard card={this.state.cards} />
     }
   }
 
