@@ -31,6 +31,7 @@ export default class App extends React.Component {
       return null
     }
     else {
+      card.id = this.state.cards.length + 1
       card.question = createForm.get('question')
       card.answer = createForm.get('answer')
       this.state.cards.push(card)
