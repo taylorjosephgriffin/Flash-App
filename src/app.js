@@ -41,7 +41,10 @@ export default class App extends React.Component {
       this.setState({
         path: window.location.hash.replace(/#/g, '')
       })
-    }, false);
+    }, false)
+    window.addEventListener('beforeunload', () => {
+      localStorage.setItem('cards', JSON.stringify(this.state['cards']))
+    })
   }
 
   render() {
