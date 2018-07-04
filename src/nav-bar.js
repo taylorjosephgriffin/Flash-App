@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Nav (props) {
   return (
-    <nav className='navbar navbar-expand-sm navbar-fixed-top navbar-light bg-warning navigation'>
+    <nav className='navbar navbar-expand-sm fixed-top navbar-light bg-warning navigation'>
       <i className='fas fa-bolt text-dark nav-icon'></i>
       <a className='navbar-brand text-dark' href='#card-list'>FlashApp</a>
       <div className='collapse navbar-collapse' id='navbarNav'>

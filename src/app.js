@@ -36,7 +36,6 @@ export default class App extends React.Component {
       this.state.cards.push(card)
       event.target.reset()
       window.location.hash = 'card-list'
-      this.setState({ path: window.location.hash })
     }
   }
 
