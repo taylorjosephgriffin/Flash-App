@@ -52,6 +52,10 @@ input:focus {
   min-height: 200px;
 }
 
+.card-question {
+  min-height: 72px;
+}
+
 .card-list { padding-top: 65px; }
 
 .close-form {
@@ -70,3 +74,10 @@ input:focus {
 .no-cards-button { transform: translateY(70%); }
 
 .no-cards-text { margin-bottom: 30px; }
+
+.edit-container {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding-left: 30px;
+}
