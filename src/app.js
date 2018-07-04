@@ -9,7 +9,7 @@ export default class App extends React.Component {
     super(props)
     const cardJSON = window.localStorage.getItem('cards')
     this.state = {
-      cards: [],
+      cards: JSON.parse(cardJSON),
       path: window.location.hash.replace(/#/g, '')
     }
     this.handleSubmit = this.handleSubmit.bind(this)
