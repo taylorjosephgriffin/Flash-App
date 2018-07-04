@@ -7,6 +7,7 @@ import {NoCards} from './card.js'
 export default class App extends React.Component {
   constructor(props) {
     super(props)
+    const cardJSON = window.localStorage.getItem('cards')
     this.state = {
       cards: [],
       path: window.location.hash.replace(/#/g, '')
