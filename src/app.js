@@ -9,7 +9,7 @@ export default class App extends React.Component {
     super(props)
     const cardJSON = window.localStorage.getItem('cards')
     this.state = {
-      cards: JSON.parse(cardJSON),
+      cards: JSON.parse(cardJSON) || [],
       path: window.location.hash.replace(/#/g, '')
     }
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -23,18 +23,21 @@ export default class App extends React.Component {
   }
 
   handleSubmit(event) {
-    const card = {}
-
     event.preventDefault()
+    const card = {}
     const createForm = new FormData(event.target)
-    card.question = createForm.get('question')
-    card.answer = createForm.get('answer')
-    this.state.cards.push(card)
-    event.target.reset()
-    window.location.hash = 'card-list'
-    this.setState({
-      path: window.location.hash
-    })
+
+    if (createForm.get('question') === '' || createForm.get('answer') === '') {
+      return null
+    }
+    else {
+      card.question = createForm.get('question')
+      card.answer = createForm.get('answer')
+      this.state.cards.push(card)
+      event.target.reset()
+      window.location.hash = 'card-list'
+      this.setState({ path: window.location.hash })
+    }
   }
 
   componentDidMount() {
