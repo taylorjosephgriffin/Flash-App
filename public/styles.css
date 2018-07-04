@@ -1,13 +1,22 @@
+body {
+  background-color: #fffcf7;
+}
+
+.navigation {
+  z-index: 2;
+}
+
 .form-window {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
+  z-index: 1;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
 .create-card-form {
-  position: absolute;
-  top: 50%;
+  position: fixed;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: 500px;
@@ -31,3 +40,33 @@ input:focus {
   margin-top: 30px;
   font-size: 50px;
 }
+
+.nav-icon {
+  margin-right: 15px;
+  font-size: 25px;
+}
+
+.flash-card {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  min-height: 200px;
+}
+
+.card-list { padding-top: 30px; }
+
+.close-form {
+  margin-left: 95%;
+  margin-top: -498px;
+  font-size: 20px;
+}
+
+.no-cards-alert {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.no-cards-button { transform: translateY(70%); }
+
+.no-cards-text { margin-bottom: 30px; }
