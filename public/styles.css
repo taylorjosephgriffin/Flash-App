@@ -81,3 +81,7 @@ input:focus {
   top: 10px;
   padding-left: 30px;
 }
+
+.edit-delete-icon {
+  margin-left: 10px;
+}
