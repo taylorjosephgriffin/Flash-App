@@ -13,11 +13,24 @@ export default function EditCard (props) {
         <div className='form-inputs'>
           <div className='form-group'>
             <label>Question</label>
-            <input name='question' type='text' className='form-control create-input' id='questionInput' aria-describedby='questionHelp' placeholder='Enter the question...' defaultValue={props.edit.question} />
+            <input
+            name='question'
+            type='text'
+            className='form-control create-input'
+            id='questionInput'
+            aria-describedby='questionHelp'
+            placeholder='Enter the question...'
+            defaultValue={props.edit.question} />
           </div>
           <div className='form-group'>
             <label>Answer</label>
-            <input name='answer' type='text' className='form-control create-input' id='answerInput' placeholder='Enter the answer...' defaultValue={props.edit.answer} />
+            <input
+            name='answer'
+            type='text'
+            className='form-control create-input'
+            id='answerInput'
+            placeholder='Enter the answer...'
+            defaultValue={props.edit.answer} />
           </div>
           <div className='form-button text-center'>
             <button type='submit' href='#card-list' className='btn btn-warning text-center'>Save</button>

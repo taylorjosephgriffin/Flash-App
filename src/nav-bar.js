@@ -11,7 +11,11 @@ export default function Nav (props) {
             <a className='nav-link text-grey' href='#card-list'>Cards</a>
           </li>
           <li className='nav-item'>
-            <a title='Add Card' className='nav-link text-grey' href='#create-card'><i className='fas fa-plus-circle text-dark'></i></a>
+            <a
+              title='Add Card'
+              className='nav-link text-grey'
+              href='#create-card'>
+              <i className='fas fa-plus-circle text-dark'></i></a>
           </li>
         </ul>
       </div>

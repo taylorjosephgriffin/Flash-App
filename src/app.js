@@ -89,7 +89,9 @@ export default class App extends React.Component {
       <div>
         <Nav />
         {this.renderView()}
-        { this.state.cards.length === 0 ? <NoCards card={this.state.cards} /> : <CardList handleClick={this.handleClick} card={this.state.cards} /> }
+        { this.state.cards.length === 0
+          ? <NoCards card={this.state.cards} />
+          : <CardList handleClick={this.handleClick} card={this.state.cards} /> }
       </div>
     )
   }

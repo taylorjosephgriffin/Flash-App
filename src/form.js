@@ -13,11 +13,22 @@ export default function Form (props) {
         <div className='form-inputs'>
           <div className='form-group'>
             <label>Question</label>
-            <input name='question' type='text' className='form-control create-input' id='questionInput' aria-describedby='questionHelp' placeholder='Enter the question...'/>
+            <input
+              name='question' 
+              type='text' 
+              className='form-control create-input' 
+              id='questionInput' 
+              aria-describedby='questionHelp' 
+              placeholder='Enter the question...'/>
           </div>
           <div className='form-group'>
             <label>Answer</label>
-            <input name='answer' type='text' className='form-control create-input' id='answerInput' placeholder='Enter the answer...'/>
+            <input
+              name='answer' 
+              type='text' 
+              className='form-control create-input' 
+              id='answerInput' 
+              placeholder='Enter the answer...'/>
           </div>
           <div className='form-button text-center'>
             <button type='submit' href='#card-list' className='btn btn-warning text-center'>Create Card</button>
