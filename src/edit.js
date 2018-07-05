@@ -3,7 +3,7 @@ import React from 'react'
 export default function EditCard (props) {
   return (
     <div className='form-window'>
-      <form id='card-form' className='create-card-form col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-4'>
+      <form id='card-form' onSubmit={props.handleSubmitEdit} className='create-card-form col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-4'>
         <div className='form-head text-center'>
           <h1>Edit Your Card</h1>
         </div>

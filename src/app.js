@@ -16,6 +16,7 @@ export default class App extends React.Component {
       edit: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmitEdit = this.handleSubmitEdit.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
 
@@ -51,6 +52,23 @@ export default class App extends React.Component {
   handleClick(event) {
     this.state.cards.map(card => {
       if (event.target.id === card.id.toString())this.setState({edit: card})
+    })
+  }
+
+  handleSubmitEdit(event) {
+  event.preventDefault()
+  const editForm = new FormData(event.target)
+  const newCards = this.state.cards.slice(0)
+  const edit = newCards.map(card => {
+    if (this.state.edit.id !== card.id) return card
+    else {
+      window.location.hash = 'card-list'
+      return {id: this.state.edit.id, question: editForm.get('question'), answer: editForm.get('answer')}
+    }
+  })
+    const postEdit = [...edit]
+    this.setState({
+      cards: postEdit
     })
   }
 
