@@ -13,7 +13,7 @@ export default class App extends React.Component {
     this.state = {
       cards: JSON.parse(cardJSON) || [],
       path: window.location.hash.replace(/#/g, ''),
-      edit: ''
+      edit: JSON.parse(editJSON) || []
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleSubmitEdit = this.handleSubmitEdit.bind(this)
