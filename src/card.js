@@ -17,12 +17,12 @@ export default function CardList(props) {
     <div className='container-fluid card-list'>
       <div className='row'>
         { props.card.map((card, index) =>
-          <div key={index} className='card-container col-xl-4 col-lg-6 col-md-6 col-sm-12'>
+          <div key={card.id} className='card-container col-xl-4 col-lg-6 col-md-6 col-sm-12'>
             <div className="card flash-card">
               <div className="card-header card-question">
                 <span>{index + 1 + '. '}</span>{card.question}
                   <div className='edit-container'>
-                    <a className='text-dark' title='Edit' href='#edit-card'><i className="far fa-edit float-right"></i></a>
+                    <a className='text-dark' title='Edit' onClick={props.handleClick} href='#edit-card'><i id={card.id} className="far fa-edit float-right"></i></a>
                   </div>
               </div>
               <div className="card-body">
