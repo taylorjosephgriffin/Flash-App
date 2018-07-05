@@ -35,7 +35,7 @@ export default class App extends React.Component {
     const card = {}
     const createForm = new FormData(event.target)
 
-    if (createForm.get('question') === '' || createForm.get('answer') === '') return null
+    if (!createForm.get('question') || !createForm.get('answer')) return null
     else {
       card.id = this.state.cards.length + 1
       card.question = createForm.get('question')
