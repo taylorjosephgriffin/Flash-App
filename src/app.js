@@ -50,9 +50,10 @@ export default class App extends React.Component {
   }
 
   handleClick(event) {
-    this.state.cards.map(card => {
-      if (event.target.id === card.id.toString())this.setState({edit: card})
+    const clickedCard = this.state.cards.find(card => {
+      return event.target.id === card.id.toString()
     })
+    this.setState({edit: clickedCard})
   }
 
   handleSubmitEdit(event) {
