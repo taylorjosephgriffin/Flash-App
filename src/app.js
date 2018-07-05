@@ -79,8 +79,8 @@ export default class App extends React.Component {
       })
     }, false)
     window.addEventListener('beforeunload', () => {
-      localStorage.setItem('edit', JSON.stringify(this.state['edit']))
-      localStorage.setItem('cards', JSON.stringify(this.state['cards']))
+      localStorage.setItem('edit', JSON.stringify(this.state.edit))
+      localStorage.setItem('cards', JSON.stringify(this.state.cards))
     })
   }
 
