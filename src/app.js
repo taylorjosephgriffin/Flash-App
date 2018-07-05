@@ -67,9 +67,8 @@ export default class App extends React.Component {
       return {id: this.state.edit.id, question: editForm.get('question'), answer: editForm.get('answer')}
     }
   })
-    const postEdit = [...edit]
     this.setState({
-      cards: postEdit
+      cards: edit
     })
   }
 
