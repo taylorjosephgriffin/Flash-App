@@ -4,6 +4,7 @@ import Nav from './nav-bar.js'
 import CardList from './card.js'
 import {NoCards} from './card.js'
 import EditCard from './edit.js'
+import Delete from './delete.js'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -26,6 +27,8 @@ export default class App extends React.Component {
         return <Form handleSubmit={this.handleSubmit} />
       case 'edit-card':
         return <EditCard edit={this.state.edit} handleSubmitEdit={this.handleSubmitEdit} card={this.state.cards} />
+      case 'delete-card':
+        return <Delete />
     }
   }
 
