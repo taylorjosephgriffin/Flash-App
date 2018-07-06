@@ -22,6 +22,7 @@ export default class App extends React.Component {
     this.handleClick = this.handleClick.bind(this)
     this.handleClickDelete = this.handleClickDelete.bind(this)
     this.handleClickSetDelete = this.handleClickSetDelete.bind(this)
+    this.count = 1
   }
 
   renderView() {
@@ -40,11 +41,11 @@ export default class App extends React.Component {
     const cards = this.state.cards.slice()
     const card = {}
     const createForm = new FormData(event.target)
-    const uniqueId = 'id#' + createForm.get('question').substring(2, 6).replace(/ /g, '') + this.state.cards.length + 1
 
     if (!createForm.get('question') || !createForm.get('answer')) return null
     else {
-      card.id = uniqueId
+      card.id = this.count
+      this.count++
       card.question = createForm.get('question')
       card.answer = createForm.get('answer')
       cards.push(card)
