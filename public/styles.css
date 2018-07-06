@@ -4,6 +4,7 @@ body {
 
 .navigation {
   z-index: 2;
+  background-color: #efb200;
 }
 
 .form-window {
@@ -149,9 +150,13 @@ input:focus {
 }
 
 .practice-answer {
-  margin-top: 65px;
+  margin-top: 35px;
 }
 
 .show-card-button {
-  transform: translateY(240px);
+  transform: translateY(230px);
+}
+
+.flash-divide {
+  margin-top: 40px;
 }

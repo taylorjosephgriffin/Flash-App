@@ -45,7 +45,7 @@ export default class App extends React.Component {
   }
 
   renderModeView() {
-    if (this.state.path === 'card-list') {
+    if (this.state.path === 'card-list' || this.renderView()) {
       if (this.state.cards.length === 0) {
         return <NoCards card={this.state.cards} />
       }
@@ -54,7 +54,7 @@ export default class App extends React.Component {
       }
     }
     else if (this.state.path === 'practice-cards') {
-      return <Practice />
+      return <Practice card={this.state.cards} />
     }
   }
 
