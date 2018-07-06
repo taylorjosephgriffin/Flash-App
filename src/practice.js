@@ -27,7 +27,6 @@ export default class Practice extends React.Component {
           showAnswer: false
         })
       }
-      else {return null}
     }
     if (event.target.id === 'right') {
       if (this.state.currentIndex < this.props.card.length - 1) {
@@ -36,7 +35,6 @@ export default class Practice extends React.Component {
           showAnswer: false
         })
       }
-      else {return null}
     }
   }
 
