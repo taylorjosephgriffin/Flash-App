@@ -11,6 +11,7 @@ export default class App extends React.Component {
     super(props)
     const cardJSON = window.localStorage.getItem('cards')
     const editJSON = window.localStorage.getItem('edit')
+    const countJSON = window.localStorage.getItem('count')
     this.state = {
       cards: JSON.parse(cardJSON) || [],
       path: window.location.hash.replace(/#/g, ''),
@@ -22,7 +23,7 @@ export default class App extends React.Component {
     this.handleClick = this.handleClick.bind(this)
     this.handleClickDelete = this.handleClickDelete.bind(this)
     this.handleClickSetDelete = this.handleClickSetDelete.bind(this)
-    this.count = 1
+    this.count = JSON.parse(countJSON) || 1
   }
 
   renderView() {
@@ -103,6 +104,7 @@ export default class App extends React.Component {
     window.addEventListener('beforeunload', () => {
       localStorage.setItem('edit', JSON.stringify(this.state.edit))
       localStorage.setItem('cards', JSON.stringify(this.state.cards))
+      localStorage.setItem('count', JSON.stringify(this.count))
     })
   }
 
