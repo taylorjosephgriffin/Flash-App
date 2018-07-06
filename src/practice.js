@@ -42,16 +42,34 @@ export default class Practice extends React.Component {
     return (
       <div className='row'>
         <div className='col-xl-4 col-lg-6 col-md-8 col-sm-8 practice-card-container'>
-        <a onClick={this.onNextClick} href='#practice-cards' className='practice-right text-dark'><i data-id='right' className="far fa-arrow-alt-circle-right practice-right-icon"></i></a>
-        <a onClick={this.onNextClick} href='#practice-cards' className='practice-left text-dark'><i data-id='left' className="far fa-arrow-alt-circle-left practice-left-icon"></i></a>
+        <a
+        onClick={this.onNextClick}
+        href='#practice-cards'
+        className='practice-right text-dark'>
+          <i
+          data-id='right'
+          className="far fa-arrow-alt-circle-right practice-right-icon"></i></a>
+        <a
+        onClick={this.onNextClick}
+        href='#practice-cards'
+        className='practice-left text-dark'>
+          <i
+          data-id='left'
+          className="far fa-arrow-alt-circle-left practice-left-icon"></i></a>
           <div className='card practice-card'>
           <div className='show-card text-center'>
-            <button onClick={this.onShowClick} className='btn btn-warning show-card-button'>show answer</button>
+            <button
+            onClick={this.onShowClick}
+            className='btn btn-warning show-card-button'>show answer</button>
           </div>
             <div className='card-body'>
-              <h2 className='card-text pracitce-question text-center'>{this.props.card[this.state.currentIndex].question}</h2>
+              <h2 className='card-text pracitce-question text-center'>
+              {this.props.card[this.state.currentIndex].question}</h2>
               <hr className='flash-divide col-10'></hr>
-              {this.state.showAnswer ? <h4 className='card-text practice-answer text-center text-dark'>{this.props.card[this.state.currentIndex].answer}</h4> : null}
+              {this.state.showAnswer
+                ? <h4 className='card-text practice-answer text-center text-dark'>
+                {this.props.card[this.state.currentIndex].answer}</h4>
+                : null}
             </div>
           </div>
         </div>

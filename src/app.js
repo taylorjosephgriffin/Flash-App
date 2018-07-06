@@ -50,7 +50,10 @@ export default class App extends React.Component {
         return <NoCards card={this.state.cards} />
       }
       else {
-        return <CardList handleClickSetDelete={this.handleClickSetDelete} handleClickSetEdit={this.handleClickSetEdit} card={this.state.cards} />
+        return <CardList
+          handleClickSetDelete={this.handleClickSetDelete}
+          handleClickSetEdit={this.handleClickSetEdit}
+          card={this.state.cards} />
       }
     }
     else if (this.state.path === 'practice-cards') {
@@ -113,7 +116,11 @@ export default class App extends React.Component {
     const edit = newCards.map(card => {
       if (this.state.edit.id === card.id) {
         window.location.hash = 'card-list'
-        return {id: this.state.edit.id, question: editForm.get('question'), answer: editForm.get('answer')}
+        return {
+          id: this.state.edit.id,
+          question: editForm.get('question'),
+          answer: editForm.get('answer')
+        }
       }
       else {
         return card
