@@ -9,18 +9,21 @@ import Delete from './delete.js'
 export default class App extends React.Component {
   constructor(props) {
     super(props)
+
     const cardJSON = window.localStorage.getItem('cards')
     const editJSON = window.localStorage.getItem('edit')
     const countJSON = window.localStorage.getItem('count')
+
     this.state = {
       cards: JSON.parse(cardJSON) || [],
       path: window.location.hash.replace(/#/g, ''),
       edit: JSON.parse(editJSON) || {},
       delete: ''
     }
+
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleSubmitEdit = this.handleSubmitEdit.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClickSetEdit = this.handleClickSetEdit.bind(this)
     this.handleClickDelete = this.handleClickDelete.bind(this)
     this.handleClickSetDelete = this.handleClickSetDelete.bind(this)
     this.count = JSON.parse(countJSON) || 1
@@ -31,7 +34,10 @@ export default class App extends React.Component {
       case 'create-card':
         return <Form handleSubmit={this.handleSubmit} />
       case 'edit-card':
-        return <EditCard edit={this.state.edit} handleSubmitEdit={this.handleSubmitEdit} card={this.state.cards} />
+        return <EditCard
+          edit={this.state.edit}
+          handleSubmitEdit={this.handleSubmitEdit}
+          card={this.state.cards} />
       case 'delete-card':
         return <Delete handleClickDelete={this.handleClickDelete}/>
     }
@@ -39,26 +45,31 @@ export default class App extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
+
     const cards = this.state.cards.slice()
-    const card = {}
     const createForm = new FormData(event.target)
 
-    if (!createForm.get('question') || !createForm.get('answer')) return null
-    else {
-      card.id = this.count
+    if (createForm.get('question') || createForm.get('answer')) {
+      let card = {
+        id: this.count,
+        question: createForm.get('question'),
+        answer: createForm.get('answer')
+      }
+
       this.count++
-      card.question = createForm.get('question')
-      card.answer = createForm.get('answer')
       cards.push(card)
       window.location.hash = 'card-list'
       this.setState({
         cards: cards
       })
     }
+    else {
+      return null
+    }
     event.target.reset()
   }
 
-  handleClick(event) {
+  handleClickSetEdit(event) {
     const clickedCard = this.state.cards.find(card => {
       return event.target.id === card.id.toString()
     })
@@ -73,23 +84,26 @@ export default class App extends React.Component {
   }
 
   handleClickDelete(event) {
-  const newCards = this.state.cards.slice(0)
-  const notDeleted = newCards.filter(card => this.state.delete.id !== card.id)
-  this.setState({cards: notDeleted})
-  window.location.hash = 'card-list'
-  }
+    const newCards = this.state.cards.slice(0)
+    const notDeleted = newCards.filter(card => this.state.delete.id !== card.id)
+      this.setState({cards: notDeleted})
+      window.location.hash = 'card-list'
+    }
 
   handleSubmitEdit(event) {
-  event.preventDefault()
-  const editForm = new FormData(event.target)
-  const newCards = this.state.cards.slice(0)
-  const edit = newCards.map(card => {
-    if (this.state.edit.id !== card.id) return card
-    else {
-      window.location.hash = 'card-list'
-      return {id: this.state.edit.id, question: editForm.get('question'), answer: editForm.get('answer')}
-    }
-  })
+    event.preventDefault()
+
+    const editForm = new FormData(event.target)
+    const newCards = this.state.cards.slice(0)
+    const edit = newCards.map(card => {
+      if (this.state.edit.id === card.id) {
+        window.location.hash = 'card-list'
+        return {id: this.state.edit.id, question: editForm.get('question'), answer: editForm.get('answer')}
+      }
+      else {
+        return card
+      }
+    })
     this.setState({
       cards: edit
     })
@@ -115,7 +129,7 @@ export default class App extends React.Component {
         {this.renderView()}
         { this.state.cards.length === 0
           ? <NoCards card={this.state.cards} />
-          : <CardList handleClickSetDelete={this.handleClickSetDelete} handleClick={this.handleClick} card={this.state.cards} /> }
+          : <CardList handleClickSetDelete={this.handleClickSetDelete} handleClickSetEdit={this.handleClickSetEdit} card={this.state.cards} /> }
       </div>
     )
   }

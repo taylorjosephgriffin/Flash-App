@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function EditCard (props) {
+export default function EditCard(props) {
   return (
     <div className='form-window'>
       <form id='card-form' onSubmit={props.handleSubmitEdit} className='create-card-form col-xl-3 col-lg-4 col-md-6 col-sm-8 col-xs-4'>

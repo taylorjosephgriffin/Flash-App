@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Delete (props) {
+export default function Delete(props) {
   return (
     <div className='form-window'>
       <div id='card-form' onSubmit={props.handleSubmit} className='create-card-form col-xl-3 col-lg-6 col-md-6 col-sm-8 col-xs-4'>

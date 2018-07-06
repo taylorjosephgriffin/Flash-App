@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Nav (props) {
+export default function Nav(props) {
   return (
     <nav className='navbar navbar-expand-sm fixed-top navbar-light bg-warning navigation'>
       <i className='fas fa-bolt text-dark nav-icon'></i>
