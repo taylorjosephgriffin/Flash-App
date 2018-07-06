@@ -8,7 +8,10 @@ export default function Nav(props) {
       <div className='collapse navbar-collapse' id='navbarNav'>
         <ul className='navbar-nav'>
           <li className='nav-item'>
-            <a className='nav-link text-grey' href='#card-list'>Cards</a>
+            <a className='nav-link text-grey' href='#card-list'>All Cards</a>
+          </li>
+          <li className='nav-item'>
+            <a className='nav-link text-grey' href='#practice-cards'>Practice</a>
           </li>
           <li className='nav-item'>
             <a
