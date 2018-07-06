@@ -5,6 +5,7 @@ import CardList from './card.js'
 import {NoCards} from './card.js'
 import EditCard from './edit.js'
 import Delete from './delete.js'
+import Practice from './practice.js'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -40,6 +41,20 @@ export default class App extends React.Component {
           card={this.state.cards} />
       case 'delete-card':
         return <Delete handleClickDelete={this.handleClickDelete}/>
+    }
+  }
+
+  renderModeView() {
+    if (this.state.path === 'card-list') {
+      if (this.state.cards.length === 0) {
+        return <NoCards card={this.state.cards} />
+      }
+      else {
+        return <CardList handleClickSetDelete={this.handleClickSetDelete} handleClickSetEdit={this.handleClickSetEdit} card={this.state.cards} />
+      }
+    }
+    else if (this.state.path === 'practice-cards') {
+      return <Practice />
     }
   }
 
@@ -127,9 +142,7 @@ export default class App extends React.Component {
       <div>
         <Nav />
         {this.renderView()}
-        { this.state.cards.length === 0
-          ? <NoCards card={this.state.cards} />
-          : <CardList handleClickSetDelete={this.handleClickSetDelete} handleClickSetEdit={this.handleClickSetEdit} card={this.state.cards} /> }
+        {this.renderModeView()}
       </div>
     )
   }
