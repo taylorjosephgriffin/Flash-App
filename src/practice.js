@@ -20,7 +20,7 @@ export default class Practice extends React.Component {
   }
 
   onNextClick(event) {
-    if (event.target.id === 'left') {
+    if (event.target.dataset.id === 'left') {
       if (this.state.currentIndex > 0) {
         this.setState({
           currentIndex: this.state.currentIndex - 1,
@@ -28,7 +28,7 @@ export default class Practice extends React.Component {
         })
       }
     }
-    if (event.target.id === 'right') {
+    if (event.target.dataset.id === 'right') {
       if (this.state.currentIndex < this.props.card.length - 1) {
         this.setState({
           currentIndex: this.state.currentIndex + 1,
@@ -42,8 +42,8 @@ export default class Practice extends React.Component {
     return (
       <div className='row'>
         <div className='col-xl-4 col-lg-6 col-md-8 col-sm-8 practice-card-container'>
-        <a onClick={this.onNextClick} href='#practice-cards' className='practice-right text-dark'><i id='right' className="far fa-arrow-alt-circle-right practice-right-icon"></i></a>
-        <a onClick={this.onNextClick} href='#practice-cards' className='practice-left text-dark'><i id='left' className="far fa-arrow-alt-circle-left practice-left-icon"></i></a>
+        <a onClick={this.onNextClick} href='#practice-cards' className='practice-right text-dark'><i data-id='right' className="far fa-arrow-alt-circle-right practice-right-icon"></i></a>
+        <a onClick={this.onNextClick} href='#practice-cards' className='practice-left text-dark'><i data-id='left' className="far fa-arrow-alt-circle-left practice-left-icon"></i></a>
           <div className='card practice-card'>
           <div className='show-card text-center'>
             <button onClick={this.onShowClick} className='btn btn-warning show-card-button'>show answer</button>
