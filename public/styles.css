@@ -32,13 +32,13 @@ input:focus {
 .create-input { margin-top: 10px; }
 
 .form-inputs,
-.form-head { margin-top: 35px; }
+.form-head { margin-top: 10px; }
 
 .form-button { margin: 35px; }
 
 .form-icon {
-  margin-top: 30px;
-  font-size: 50px;
+  margin-top: 20px;
+  font-size: 70px;
 }
 
 .nav-icon {
@@ -59,8 +59,10 @@ input:focus {
 .card-list { padding-top: 65px; }
 
 .close-form {
-  margin-left: 95%;
-  margin-top: -498px;
+  position: relative;
+  top: 10px;
+  left: 96%;
+  width: 10px;
   font-size: 20px;
 }
 
@@ -84,4 +86,34 @@ input:focus {
 
 .edit-delete-icon {
   margin-left: 10px;
+}
+
+.close-form-delete {
+  position: relative;
+  top: 10px;
+  left: 96%;
+  width: 10px;
+  font-size: 20px;
+}
+
+.form-icon.delete {
+  padding-top: 0;
+  font-size: 125px;
+}
+
+.warning-text.delete {
+  padding-top: 20px;
+  margin: 0 auto;
+  width: 300px;
+  font-size: 20px;
+}
+
+.form-button.delete {
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+.delete-head {
+  width: 100%;
+  margin-top: 0;
 }

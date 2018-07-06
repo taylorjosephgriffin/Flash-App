@@ -2,7 +2,7 @@ import React from 'react'
 
 export function NoCards(props) {
   return (
-    <div className='jumbotron no-cards-alert bg-warning col-xl-5 col-lg-6 col-md-6 text-center'>
+    <div className='jumbotron no-cards-alert bg-warning col-xl-4 col-lg-6 col-md-6 text-center'>
       <h1 className='display-4 text-center no-cards-text'>You have no cards!</h1>
       <hr className='my-2' />
       <div className='no-cards-button'>
