@@ -145,5 +145,13 @@ input:focus {
 }
 
 .pracitce-question {
-  margin-top: 105px;
+  margin-top: -20px;
+}
+
+.practice-answer {
+  margin-top: 65px;
+}
+
+.show-card-button {
+  transform: translateY(240px);
 }
