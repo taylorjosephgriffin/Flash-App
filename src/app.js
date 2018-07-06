@@ -30,7 +30,7 @@ export default class App extends React.Component {
     this.count = JSON.parse(countJSON) || 1
   }
 
-  renderView() {
+  renderForm() {
     switch (this.state.path) {
       case 'create-card':
         return <Form handleSubmit={this.handleSubmit} />
@@ -45,7 +45,7 @@ export default class App extends React.Component {
   }
 
   renderModeView() {
-    if (this.state.path === 'card-list' || this.renderView()) {
+    if (this.state.path === 'card-list' || this.renderForm()) {
       if (this.state.cards.length === 0) {
         return <NoCards card={this.state.cards} />
       }
@@ -141,7 +141,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Nav />
-        {this.renderView()}
+        {this.renderForm()}
         {this.renderModeView()}
       </div>
     )
