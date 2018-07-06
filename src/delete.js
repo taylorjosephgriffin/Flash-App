@@ -15,7 +15,7 @@ export default function Delete (props) {
           Cards cannot be retrieved once they are deleted.
         </div>
         <div className='form-button delete text-center'>
-          <button type='submit' href='#card-list' className='btn btn-warning text-center'>Delete Card</button>
+          <button type='submit' href='#card-list' className='btn btn-warning text-center' onClick={props.handleClickDelete}>Delete Card</button>
         </div>
       </div>
     </div>

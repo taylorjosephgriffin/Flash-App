@@ -22,7 +22,7 @@ export default function CardList(props) {
               <div className='card-header card-question'>
                 <span>{index + 1 + '. '}</span>{card.question}
                   <div className='edit-container'>
-                    <a className='text-danger' title='Delete' href='#delete-card'><i className='far fa-trash-alt float-right edit-delete-icon'></i></a>
+                    <a className='text-danger' title='Delete' href='#delete-card' onClick={props.handleClickSetDelete}><i id={card.id} className='far fa-trash-alt float-right edit-delete-icon'></i></a>
                     <a className='text-success' title='Edit' onClick={props.handleClick} href='#edit-card'><i id={card.id} className='far fa-edit float-right edit-delete-icon'></i></a>
                   </div>
               </div>

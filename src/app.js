@@ -14,11 +14,14 @@ export default class App extends React.Component {
     this.state = {
       cards: JSON.parse(cardJSON) || [],
       path: window.location.hash.replace(/#/g, ''),
-      edit: JSON.parse(editJSON) || {}
+      edit: JSON.parse(editJSON) || {},
+      delete: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleSubmitEdit = this.handleSubmitEdit.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleClickDelete = this.handleClickDelete.bind(this)
+    this.handleClickSetDelete = this.handleClickSetDelete.bind(this)
   }
 
   renderView() {
@@ -28,7 +31,7 @@ export default class App extends React.Component {
       case 'edit-card':
         return <EditCard edit={this.state.edit} handleSubmitEdit={this.handleSubmitEdit} card={this.state.cards} />
       case 'delete-card':
-        return <Delete />
+        return <Delete handleClickDelete={this.handleClickDelete}/>
     }
   }
 
@@ -37,10 +40,11 @@ export default class App extends React.Component {
     const cards = this.state.cards.slice()
     const card = {}
     const createForm = new FormData(event.target)
+    const uniqueId = 'id#' + createForm.get('question').substring(2, 6).replace(/ /g, '') + this.state.cards.length + 1
 
     if (!createForm.get('question') || !createForm.get('answer')) return null
     else {
-      card.id = this.state.cards.length + 1
+      card.id = uniqueId
       card.question = createForm.get('question')
       card.answer = createForm.get('answer')
       cards.push(card)
@@ -57,6 +61,20 @@ export default class App extends React.Component {
       return event.target.id === card.id.toString()
     })
     this.setState({edit: clickedCard})
+  }
+
+  handleClickSetDelete(event) {
+    const deleteCard = this.state.cards.find(card => {
+      return event.target.id === card.id.toString()
+    })
+    this.setState({delete: deleteCard})
+  }
+
+  handleClickDelete(event) {
+  const newCards = this.state.cards.slice(0)
+  const notDeleted = newCards.filter(card => this.state.delete.id !== card.id)
+  this.setState({cards: notDeleted})
+  window.location.hash = 'card-list'
   }
 
   handleSubmitEdit(event) {
@@ -88,13 +106,14 @@ export default class App extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div>
         <Nav />
         {this.renderView()}
         { this.state.cards.length === 0
           ? <NoCards card={this.state.cards} />
-          : <CardList handleClick={this.handleClick} card={this.state.cards} /> }
+          : <CardList handleClickSetDelete={this.handleClickSetDelete} handleClick={this.handleClick} card={this.state.cards} /> }
       </div>
     )
   }
