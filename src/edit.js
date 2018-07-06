@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function EditCard (props) {
+export default function EditCard(props) {
   return (
     <div className='form-window'>
-      <form id='card-form' onSubmit={props.handleSubmitEdit} className='create-card-form col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-4'>
+      <form id='card-form' onSubmit={props.handleSubmitEdit} className='create-card-form col-xl-3 col-lg-4 col-md-6 col-sm-8 col-xs-4'>
+      <a className='text-dark close-form' href='#card-list'><i className='far fa-times-circle'></i></a>
         <div className='form-head text-center'>
           <h1>Edit Your Card</h1>
         </div>
@@ -34,9 +35,6 @@ export default function EditCard (props) {
           </div>
           <div className='form-button text-center'>
             <button type='submit' href='#card-list' className='btn btn-warning text-center'>Save</button>
-          </div>
-          <div className='close-form'>
-            <a className='text-dark' href='#card-list'><i className='far fa-times-circle'></i></a>
           </div>
         </div>
       </form>
