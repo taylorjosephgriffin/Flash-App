@@ -27,20 +27,22 @@ export default class App extends React.Component {
     this.handleClickSetEdit = this.handleClickSetEdit.bind(this)
     this.handleClickDelete = this.handleClickDelete.bind(this)
     this.handleClickSetDelete = this.handleClickSetDelete.bind(this)
+    this.handleFormClick = this.handleFormClick.bind(this)
     this.count = JSON.parse(countJSON) || 1
   }
 
   renderForm() {
     switch (this.state.path) {
       case 'create-card':
-        return <Form handleSubmit={this.handleSubmit} />
+        return <Form handleFormClick={this.handleFormClick} handleSubmit={this.handleSubmit} />
       case 'edit-card':
         return <EditCard
+          handleFormClick={this.handleFormClick}
           edit={this.state.edit}
           handleSubmitEdit={this.handleSubmitEdit}
           card={this.state.cards} />
       case 'delete-card':
-        return <Delete handleClickDelete={this.handleClickDelete}/>
+        return <Delete handleFormClick={this.handleFormClick} handleClickDelete={this.handleClickDelete}/>
     }
   }
 
@@ -57,7 +59,12 @@ export default class App extends React.Component {
       }
     }
     else if (this.state.path === 'practice-cards') {
-      return <Practice card={this.state.cards} />
+      if (this.state.cards.length === 0) {
+        return <NoCards card={this.state.cards} />
+      }
+      else {
+        return <Practice card={this.state.cards} />
+      }
     }
   }
 
@@ -85,6 +92,10 @@ export default class App extends React.Component {
       return null
     }
     event.target.reset()
+  }
+
+  handleFormClick(event) {
+    window.location.hash = 'card-list'
   }
 
   handleClickSetEdit(event) {
