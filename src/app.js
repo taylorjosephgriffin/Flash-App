@@ -95,7 +95,9 @@ export default class App extends React.Component {
   }
 
   handleFormClick(event) {
-    window.location.hash = 'card-list'
+    event.target.className === 'form-window'
+      ? window.location.hash = 'card-list'
+      : null
   }
 
   handleClickSetEdit(event) {
