@@ -4,7 +4,10 @@
   "description": "React Props",
   "main": "index.js",
   "scripts": {
-    "watch": "watchify src/index.js -vd -t babelify -o src/main.js"
+    "watch": "watchify src/index.js -vd -t babelify -o src/main.js",
+    "start": "react-scripts start",
+    "now-start": "serve --single ./build",
+    "build": "react-scripts build"
   },
   "author": "",
   "license": "ISC",
@@ -19,7 +22,11 @@
     "watchify": "^3.11.0"
   },
   "dependencies": {
+    "micro": "^9.3.2",
+    "now": "^11.2.5",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-scripts": "^1.1.4",
+    "serve": "^9.2.0"
   }
 }

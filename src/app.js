@@ -145,7 +145,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener("hashchange", event => {
+    window.addEventListener('hashchange', event => {
       this.setState({
         path: window.location.hash.replace(/#/g, '')
       })

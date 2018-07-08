@@ -2,40 +2,81 @@ import React from 'react'
 
 export default function Form(props) {
   return (
-    <div className='form-window'>
-      <form id='card-form' onSubmit={props.handleSubmit} className='create-card-form col-xl-3 col-lg-4 col-md-6 col-sm-8 col-xs-4'>
-        <a className='text-dark close-form' href='#card-list'><i className='far fa-times-circle'></i></a>
-        <div className='form-head text-center'>
-          <h1>Create a Card</h1>
+    <div onClick={props.handleFormClick} className='form-window'>
+      <div className='container form-container'>
+        <div className='row'>
+          <form
+            id='card-form'
+            onSubmit={props.handleSubmit}
+            className='card-form col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-4'>
+            <div className='row'>
+              <div className='col'>
+               <a
+                 className='text-dark close-form float-right'
+                 href='#card-list'>
+                 <i className='far fa-times-circle'></i>
+               </a>
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col'>
+                <div className='form-head text-center'>
+                  <h1>Create a Card</h1>
+                </div>
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col'>
+                <div className='form-icon text-center'>
+                  <i className='fas fa-bolt text-warning'></i>
+                </div>
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col'>
+                <div className='form-inputs'>
+                  <div className='form-group'>
+                    <label>Question</label>
+                    <input
+                      name='question'
+                      type='text'
+                      className='form-control create-input'
+                      id='questionInput'
+                      aria-describedby='questionHelp'
+                      placeholder='Enter the question...'/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col'>
+                <div className='form-inputs'>
+                  <div className='form-group'>
+                    <label>Answer</label>
+                    <input
+                      name='answer'
+                      type='text'
+                      className='form-control create-input'
+                      id='answerInput'
+                      aria-describedby='answerHelp'
+                      placeholder='Enter the answer...'/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col'>
+                <div className='form-button text-center'>
+                  <button
+                    type='submit'
+                    href='#card-list'
+                    className='btn btn-warning text-center'>Create Card</button>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
-        <div className='form-icon text-center'>
-          <i className="fas fa-bolt text-warning"></i>
-        </div>
-        <div className='form-inputs'>
-          <div className='form-group'>
-            <label>Question</label>
-            <input
-              name='question'
-              type='text'
-              className='form-control create-input'
-              id='questionInput'
-              aria-describedby='questionHelp'
-              placeholder='Enter the question...'/>
-          </div>
-          <div className='form-group'>
-            <label>Answer</label>
-            <input
-              name='answer'
-              type='text'
-              className='form-control create-input'
-              id='answerInput'
-              placeholder='Enter the answer...'/>
-          </div>
-          <div className='form-button text-center'>
-            <button type='submit' href='#card-list' className='btn btn-warning text-center'>Create Card</button>
-          </div>
-        </div>
-      </form>
+      </div>
     </div>
   )
 }
