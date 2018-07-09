@@ -3,25 +3,26 @@ body {
 }
 
 .navigation {
-  z-index: 2;
+  z-index: 5;
+  background-color: #efb200;
+}
+
+.card-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid grey;
+  z-index: 1;
 }
 
 .form-window {
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 3;
   background-color: rgba(0, 0, 0, 0.2);
-}
-
-.create-card-form {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 500px;
-  background-color: white;
-  border: 1px solid grey;
 }
 
 input:focus {
@@ -29,22 +30,14 @@ input:focus {
   box-shadow: 0 0 3px #f0ad4e !important;
 }
 
-.create-input { margin-top: 10px; }
-
-.form-inputs,
-.form-head { margin-top: 10px; }
-
-.form-button { margin: 35px; }
-
-.form-icon {
-  margin-top: 20px;
-  font-size: 70px;
-}
+.form-icon { font-size: 70px; }
 
 .nav-icon {
   margin-right: 15px;
   font-size: 25px;
 }
+
+.form-button { margin-bottom: 15px; }
 
 .flash-card {
   margin-top: 15px;
@@ -52,18 +45,11 @@ input:focus {
   min-height: 200px;
 }
 
-.card-question {
-  min-height: 72px;
-}
+.card-question { min-height: 72px; }
 
-.card-list { padding-top: 65px; }
-
-.close-form {
-  position: relative;
-  top: 10px;
-  left: 96%;
-  width: 10px;
-  font-size: 20px;
+.card-list {
+  padding-top: 65px;
+  z-index: 1;
 }
 
 .no-cards-alert {
@@ -73,47 +59,30 @@ input:focus {
   transform: translate(-50%, -50%);
 }
 
-.no-cards-button { transform: translateY(70%); }
-
-.no-cards-text { margin-bottom: 30px; }
-
-.edit-container {
+.practice-card-container {
   position: absolute;
-  right: 10px;
-  top: 10px;
-  padding-left: 30px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
+
+.flash-divide { margin-top: 40px; }
+
+.no-cards-form { z-index: 3; }
 
 .edit-delete-icon {
-  margin-left: 10px;
+  padding-left: 15px;
+  padding-right: 0;
 }
 
-.close-form-delete {
-  position: relative;
-  top: 10px;
-  left: 96%;
-  width: 10px;
-  font-size: 20px;
+.nav-item.active { text-decoration: underline; }
+
+.cycle-practice {
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.form-icon.delete {
-  padding-top: 0;
-  font-size: 125px;
-}
+.show-button { margin-top: 10px; }
 
-.warning-text.delete {
-  padding-top: 20px;
-  margin: 0 auto;
-  width: 300px;
-  font-size: 20px;
-}
-
-.form-button.delete {
-  margin-top: 40px;
-  font-size: 20px;
-}
-
-.delete-head {
-  width: 100%;
-  margin-top: 0;
-}
+.hidden-text { color: transparent; }

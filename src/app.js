@@ -5,6 +5,7 @@ import CardList from './card.js'
 import {NoCards} from './card.js'
 import EditCard from './edit.js'
 import Delete from './delete.js'
+import Practice from './practice.js'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -26,20 +27,44 @@ export default class App extends React.Component {
     this.handleClickSetEdit = this.handleClickSetEdit.bind(this)
     this.handleClickDelete = this.handleClickDelete.bind(this)
     this.handleClickSetDelete = this.handleClickSetDelete.bind(this)
+    this.handleFormClick = this.handleFormClick.bind(this)
     this.count = JSON.parse(countJSON) || 1
   }
 
-  renderView() {
+  renderForm() {
     switch (this.state.path) {
       case 'create-card':
-        return <Form handleSubmit={this.handleSubmit} />
+        return <Form handleFormClick={this.handleFormClick} handleSubmit={this.handleSubmit} />
       case 'edit-card':
         return <EditCard
+          handleFormClick={this.handleFormClick}
           edit={this.state.edit}
           handleSubmitEdit={this.handleSubmitEdit}
           card={this.state.cards} />
       case 'delete-card':
-        return <Delete handleClickDelete={this.handleClickDelete}/>
+        return <Delete handleFormClick={this.handleFormClick} handleClickDelete={this.handleClickDelete}/>
+    }
+  }
+
+  renderModeView() {
+    if (this.state.path === 'card-list' || this.renderForm()) {
+      if (this.state.cards.length === 0) {
+        return <NoCards card={this.state.cards} />
+      }
+      else {
+        return <CardList
+          handleClickSetDelete={this.handleClickSetDelete}
+          handleClickSetEdit={this.handleClickSetEdit}
+          card={this.state.cards} />
+      }
+    }
+    else if (this.state.path === 'practice-cards') {
+      if (this.state.cards.length === 0) {
+        return <NoCards card={this.state.cards} />
+      }
+      else {
+        return <Practice card={this.state.cards} />
+      }
     }
   }
 
@@ -67,6 +92,12 @@ export default class App extends React.Component {
       return null
     }
     event.target.reset()
+  }
+
+  handleFormClick(event) {
+    event.target.className === 'form-window'
+      ? window.location.hash = 'card-list'
+      : null
   }
 
   handleClickSetEdit(event) {
@@ -98,7 +129,11 @@ export default class App extends React.Component {
     const edit = newCards.map(card => {
       if (this.state.edit.id === card.id) {
         window.location.hash = 'card-list'
-        return {id: this.state.edit.id, question: editForm.get('question'), answer: editForm.get('answer')}
+        return {
+          id: this.state.edit.id,
+          question: editForm.get('question'),
+          answer: editForm.get('answer')
+        }
       }
       else {
         return card
@@ -110,7 +145,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener("hashchange", event => {
+    window.addEventListener('hashchange', event => {
       this.setState({
         path: window.location.hash.replace(/#/g, '')
       })
@@ -126,10 +161,8 @@ export default class App extends React.Component {
     return (
       <div>
         <Nav />
-        {this.renderView()}
-        { this.state.cards.length === 0
-          ? <NoCards card={this.state.cards} />
-          : <CardList handleClickSetDelete={this.handleClickSetDelete} handleClickSetEdit={this.handleClickSetEdit} card={this.state.cards} /> }
+        {this.renderForm()}
+        {this.renderModeView()}
       </div>
     )
   }
