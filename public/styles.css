@@ -83,7 +83,7 @@ input:focus {
   margin-bottom: 10px;
 }
 
-.show-button { margin-top: 10px; }
+.show-button { margin-top: 50px; }
 
 .hidden-text { color: transparent; }
 
@@ -93,4 +93,10 @@ input:focus {
 
 .card-body {
   padding-bottom: 0;
+  height: 250px;
+}
+
+.show-card {
+  margin-top: 50px;
+  font-size: 30px;
 }

@@ -40,6 +40,7 @@ export default class Practice extends React.Component {
   }
 
   render() {
+    const progWidth = (100 / this.props.card.length) * (this.state.currentIndex + 1) + '%'
     return (
       <div className='container'>
         <div className='row'>
@@ -93,7 +94,13 @@ export default class Practice extends React.Component {
               </div>
             </div>
             <div className="progress prog-bar">
-              <div className="progress-bar progress-bar-striped bg-warning" role="progressbar" style={{width: (100 / this.props.card.length) * (this.state.currentIndex + 1) + '%'}} aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              <div
+                className="progress-bar progress-bar-striped bg-warning"
+                role="progressbar"
+                style={{width: progWidth}}
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="100"></div>
             </div>
           </div>
         </div>
