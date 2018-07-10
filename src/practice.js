@@ -67,7 +67,7 @@ export default class Practice extends React.Component {
                 </div>
               </div>
               <div className='row'>
-                <div className='col-md-6 col-sm-2 cycle-practice'>
+                <div className='col-md-6 col-sm-6 cycle-practice'>
                   <a
                   onClick={this.onNextClick}
                   href='#practice-cards'
@@ -76,7 +76,7 @@ export default class Practice extends React.Component {
                     data-id='left'
                     className='far fa-arrow-alt-circle-left practice-left-icon'></i></a>
                 </div>
-                <div className='col-md-6 col-sm-2 cycle-practice'>
+                <div className='col-md-6 col-sm-6 cycle-practice'>
                   <a
                   onClick={this.onNextClick}
                   href='#practice-cards'

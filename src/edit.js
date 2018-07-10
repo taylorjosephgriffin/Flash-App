@@ -12,7 +12,7 @@ export default function EditCard(props) {
             <div className='row'>
               <div className='col'>
                <a
-                 className='text-dark close-form float-right'
+                 className='text-dark close-form mt-2 float-right'
                  href='#card-list'>
                  <i className='far fa-times-circle'></i>
                </a>
@@ -72,7 +72,7 @@ export default function EditCard(props) {
                   <button
                     type='submit'
                     href='#card-list'
-                    className='btn btn-warning text-center'>Save</button>
+                    className='shadow-sm btn btn-warning text-center'>Save</button>
                 </div>
               </div>
             </div>

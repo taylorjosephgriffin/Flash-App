@@ -74,7 +74,10 @@ export default class App extends React.Component {
     const cards = this.state.cards.slice()
     const createForm = new FormData(event.target)
 
-    if (createForm.get('question') || createForm.get('answer')) {
+    if (!createForm.get('question') || !createForm.get('answer')) {
+      return null
+    }
+    else {
       let card = {
         id: this.count,
         question: createForm.get('question'),
@@ -87,9 +90,6 @@ export default class App extends React.Component {
       this.setState({
         cards: cards
       })
-    }
-    else {
-      return null
     }
     event.target.reset()
   }

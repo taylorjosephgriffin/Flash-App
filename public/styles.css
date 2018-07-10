@@ -86,3 +86,11 @@ input:focus {
 .show-button { margin-top: 10px; }
 
 .hidden-text { color: transparent; }
+
+.prog-bar {
+  transform: translate(0, 30px);
+}
+
+.card-body {
+  padding-bottom: 0;
+}
