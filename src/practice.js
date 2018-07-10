@@ -40,11 +40,11 @@ export default class Practice extends React.Component {
   }
 
   render() {
+    const progWidth = (100 / this.props.card.length) * (this.state.currentIndex + 1) + '%'
     return (
       <div className='container'>
         <div className='row'>
           <div className='card practice-card-container col-xl-6 col-lg-6 col-md-8 col-sm-10'>
-
             <div className='row'>
               <div className='card-header justify-content-center col-md-12'>
                 <h2 className='card-title text-center'>
@@ -68,7 +68,7 @@ export default class Practice extends React.Component {
                 </div>
               </div>
               <div className='row'>
-                <div className='col-md-6 col-sm-2 cycle-practice'>
+                <div className='col-md-6 col-sm-6 cycle-practice'>
                   <a
                   onClick={this.onNextClick}
                   href='#practice-cards'
@@ -77,7 +77,7 @@ export default class Practice extends React.Component {
                     data-id='left'
                     className='far fa-arrow-alt-circle-left practice-left-icon'></i></a>
                 </div>
-                <div className='col-md-6 col-sm-2 cycle-practice'>
+                <div className='col-md-6 col-sm-6 cycle-practice'>
                   <a
                   onClick={this.onNextClick}
                   href='#practice-cards'
@@ -92,6 +92,15 @@ export default class Practice extends React.Component {
                   <a onClick={this.onShowClick} className='btn btn-warning'>show answer</a>
                 </div>
               </div>
+            </div>
+            <div className="progress prog-bar">
+              <div
+                className="progress-bar progress-bar-striped bg-warning"
+                role="progressbar"
+                style={{width: progWidth}}
+                aria-valuenow="75"
+                aria-valuemin="0"
+                aria-valuemax="100"></div>
             </div>
           </div>
         </div>
