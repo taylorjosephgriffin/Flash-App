@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "React Props",
   "main": "index.js",
+  "homepage": "https://github.com/taylorjosephgriffin/Flash-App",
   "scripts": {
     "watch": "watchify src/index.js -vd -t babelify -o public/main.js",
     "bundle": "browserify src/index.js -t babelify -o public/main.js",
