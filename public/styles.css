@@ -64,6 +64,7 @@ input:focus {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  transition: left 500ms ease-in-out;
 }
 
 .flash-divide { margin-top: 40px; }
@@ -78,25 +79,29 @@ input:focus {
 .nav-item.active { text-decoration: underline; }
 
 .cycle-practice {
-  padding: 0;
+  padding-right: 10px;
+  padding-left: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+  font-size: 30px;
 }
 
-.show-button { margin-top: 50px; }
-
-.hidden-text { color: transparent; }
+.hidden-text {
+  color: transparent;
+}
 
 .prog-bar {
-  transform: translate(0, 30px);
+  transform: translate(0, 180px);
 }
 
 .card-body {
-  padding-bottom: 0;
   height: 250px;
 }
 
 .show-card {
-  margin-top: 50px;
-  font-size: 30px;
+  font-size: 40px;
+}
+
+.show-button {
+  transform: translate(0, 150px);
 }

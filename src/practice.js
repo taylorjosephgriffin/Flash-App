@@ -44,7 +44,7 @@ export default class Practice extends React.Component {
     return (
       <div className='container'>
         <div className='row'>
-          <div className='card practice-card-container col-xl-6 col-lg-6 col-md-8 col-sm-10'>
+          <div className='card practice-card-container col-xl-6 col-lg-8 col-md-8 col-sm-10'>
             <div className='row'>
               <div className='card-header justify-content-center col-md-12'>
                 <h2 className='card-title text-center'>
@@ -53,9 +53,9 @@ export default class Practice extends React.Component {
               </div>
             </div>
 
-            <div className='card-body'>
+            <div className='card-body pb-0'>
               <div className='row'>
-                <div className='col-md-12 col-sm-12'>
+                <div className='col-md-12 col-sm-12 mt-5 pt-2'>
                   <div className='practice-card'>
                     <div className='show-card text-center'>
                       <p className={this.state.showAnswer
@@ -67,31 +67,6 @@ export default class Practice extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className='row'>
-                <div className='col-md-6 col-sm-6 cycle-practice'>
-                  <a
-                  onClick={this.onNextClick}
-                  href='#practice-cards'
-                  className='practice-left text-dark'>
-                    <i
-                    data-id='left'
-                    className='far fa-arrow-alt-circle-left practice-left-icon'></i></a>
-                </div>
-                <div className='col-md-6 col-sm-6 cycle-practice'>
-                  <a
-                  onClick={this.onNextClick}
-                  href='#practice-cards'
-                  className='practice-right text-dark'>
-                    <i
-                    data-id='right'
-                    className='far fa-arrow-alt-circle-right practice-right-icon float-right'></i></a>
-                </div>
-              </div>
-              <div className='row'>
-                <div className='col-md-12 show-button text-center'>
-                  <a onClick={this.onShowClick} className='btn btn-warning'>show answer</a>
-                </div>
-              </div>
             </div>
             <div className="progress prog-bar">
               <div
@@ -101,6 +76,31 @@ export default class Practice extends React.Component {
                 aria-valuenow="75"
                 aria-valuemin="0"
                 aria-valuemax="100"></div>
+            </div>
+            <div className='row'>
+              <div className='col-md-12 mt-5 show-button text-center'>
+                <a onClick={this.onShowClick} className='btn btn-warning'>show answer</a>
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col-md-6 col-sm-6 col-6 cycle-practice'>
+                <a
+                onClick={this.onNextClick}
+                href='#practice-cards'
+                className='practice-left text-dark'>
+                  <i
+                  data-id='left'
+                  className='far fa-arrow-alt-circle-left practice-left-icon'></i></a>
+              </div>
+              <div className='col-md-6 col-sm-6 col-6 cycle-practice'>
+                <a
+                onClick={this.onNextClick}
+                href='#practice-cards'
+                className='practice-right text-dark'>
+                  <i
+                  data-id='right'
+                  className='far fa-arrow-alt-circle-right practice-right-icon float-right'></i></a>
+              </div>
             </div>
           </div>
         </div>
