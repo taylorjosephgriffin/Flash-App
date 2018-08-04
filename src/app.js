@@ -47,7 +47,7 @@ export default class App extends React.Component {
   }
 
   renderModeView() {
-    if (this.state.path === 'card-list' || this.renderForm()) {
+    if (this.state.path === 'card-list' || this.state.path === '' || this.renderForm()) {
       if (this.state.cards.length === 0) {
         return <NoCards card={this.state.cards} />
       }
